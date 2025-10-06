@@ -1,6 +1,5 @@
 import { apiKey } from "../../apikey/key";
 import { weather } from "../weatherObject/weatherObject.js";
-let querry='san%20felipe%2C%20chile'
 let key =apiKey()
 
 async function weatherData(querry){
@@ -18,12 +17,14 @@ async function weatherData(querry){
 
 
 
-const jsonProcessing= async()=>{
+const getWeather= async(querry)=>{
 
     let weatherJson = await weatherData(querry)
-    weather(weatherJson)
+    console.log(weatherJson)
+    return weather(weatherJson)
     
 }
 
-jsonProcessing()
+export {getWeather}
+
 

@@ -1,6 +1,7 @@
 import "./styles.css";
 
-import './dataHandler/dataHandler.js'
+import { weatherDisplay } from "./weatherDisplay/weatherDisplay";
+
 
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
@@ -21,10 +22,17 @@ document.addEventListener("click", (e) => {
   }
 });
 
+document.addEventListener ('submit', e=>{
+  e.preventDefault()
+  let newPlace=e.target.elements['place'].value
+  weatherDisplay(newPlace)
+})
+
 window.addEventListener(
   "DOMContentLoaded",
   function () {
     // on load, sethome should run by itself so the page is not blank
+    weatherDisplay('san felipe chile')
   },
   false,
 );
